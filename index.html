@@ -284,7 +284,7 @@
     </div>
 
     <script>
-       // 每个项目的图片路径数组
+        
 const projectsImages = {
     project1: ['project1/01.png', 'project1/02.png', 'project1/03.png', 'project1/04.png', 'project1/05.png', 'project1/05.1.png', 'project1/05.2.png'],
     project2: ['project2/06.png', 'project2/07.png', 'project2/08.png', 'project2/09.png'],
@@ -295,7 +295,6 @@ const projectsImages = {
 
 };
 
-// 获取所有项目的图片和箭头
 const projects = document.querySelectorAll('.project');
 
 projects.forEach(project => {
@@ -305,14 +304,12 @@ projects.forEach(project => {
     const projectId = project.id;
     let currentIndex = parseInt(imgElement.getAttribute('data-index')) || 0;  // 确保索引初始化为 0
 
-    // 左箭头点击事件
     arrowLeft.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + projectsImages[projectId].length) % projectsImages[projectId].length;
         imgElement.src = projectsImages[projectId][currentIndex];
         imgElement.setAttribute('data-index', currentIndex);  // 更新索引
     });
 
-    // 右箭头点击事件
     arrowRight.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % projectsImages[projectId].length;
         imgElement.src = projectsImages[projectId][currentIndex];
